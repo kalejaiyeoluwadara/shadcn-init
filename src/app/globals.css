@@ -66,7 +66,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground sm:px-0 px-4;
   }
 }
 
