@@ -20,6 +20,9 @@ interface Recipe {
 
 async function getRecipes(): Promise<Recipe[]> {
   const result = await fetch("http://localhost:4000/recipes");
+  // Delay response
+  await new Promise((resolve) => setTimeout(resolve, 3000));
+
   return result.json();
 }
 async function Home() {
@@ -47,8 +50,8 @@ async function Home() {
                 <p>{recipe.description}</p>
               </CardContent>
               <CardFooter className="flex justify-between">
-                <button>View Recipe</button>
-                {recipe.vegan && <p>Vegan!</p>}
+                <Button>View Recipe</Button>
+                {recipe.vegan && <Badge variant={"secondary"}>Vegan!</Badge>}
               </CardFooter>
             </Card>
           );
